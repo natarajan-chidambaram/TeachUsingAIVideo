@@ -71,6 +71,42 @@ LANGUAGES = [
             "format": "vtt",
         },
     },
+    {
+        "code": "de",
+        "label": "Deutsch",
+        "audio": {
+            "fileUrl": f"{MEDIA_BASE}/audio/newtons-laws-de.mp3",
+            "kind": "dubbed",
+        },
+        "subtitle": {
+            "fileUrl": f"{MEDIA_BASE}/subtitles/newtons-laws-de.vtt",
+            "format": "vtt",
+        },
+    },
+    {
+        "code": "lb",
+        "label": "Lëtzebuergesch",
+        "audio": {
+            "fileUrl": f"{MEDIA_BASE}/audio/newtons-laws-lb.mp3",
+            "kind": "dubbed",
+        },
+        "subtitle": {
+            "fileUrl": f"{MEDIA_BASE}/subtitles/newtons-laws-lb.vtt",
+            "format": "vtt",
+        },
+    },
+    {
+        "code": "pt",
+        "label": "Portugues",
+        "audio": {
+            "fileUrl": f"{MEDIA_BASE}/audio/newtons-laws-pt.mp3",
+            "kind": "dubbed",
+        },
+        "subtitle": {
+            "fileUrl": f"{MEDIA_BASE}/subtitles/newtons-laws-pt.vtt",
+            "format": "vtt",
+        },
+    },
 ]
 
 CHARACTERS = [

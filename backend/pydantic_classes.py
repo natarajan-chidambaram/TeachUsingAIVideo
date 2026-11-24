@@ -59,6 +59,13 @@ class PlayerSettingsCreate(BaseModel):
     currentVideo: Optional[int] = None  # N:1 Relationship (optional)
 
 
+class LanguageCreate(BaseModel):
+    code: str
+    isSupportedForAudio: bool
+    isSupportedForSubtitles: bool
+    name: str
+
+
 class CharacterCreate(BaseModel):
     avatarImageUrl: str
     name: str

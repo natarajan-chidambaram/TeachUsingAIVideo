@@ -142,6 +142,94 @@ async def execute_playersettings_changeLanguage(
 
 
 
+@router.post("/playersettings/{playersettings_id}/methods/changeAudioLanguage/", response_model=None, tags=["PlayerSettings Methods"])
+async def execute_playersettings_changeAudioLanguage(
+    playersettings_id: int,  # the PlayerSettings that changeAudioLanguage runs on
+    params: dict = Body(default=None),
+    database: Session = Depends(get_db)
+):
+    """Switch the narration (audio) language without touching the subtitles.
+
+    Parameters:
+    - languageCode: str
+    """
+    _playersettings_object = database.query(PlayerSettings).filter(PlayerSettings.id == playersettings_id).first()
+    if _playersettings_object is None:
+        raise HTTPException(status_code=404, detail="PlayerSettings not found")
+    language_code = _require_param(params, "languageCode")
+    if not isinstance(language_code, str) or not language_code.strip():
+        raise HTTPException(status_code=400, detail="Parameter 'languageCode' must be a non-empty string")
+    language_code = language_code.strip()
+
+    video_id = _playersettings_object.currentVideo_id
+    if video_id is not None:
+        offered = {
+            code for (code,) in database.query(AudioTrack.languageCode).join(
+                videos, AudioTrack.id == videos.c["audioTracks"]
+            ).filter(videos.c["videos"] == video_id).distinct().all()
+        }
+        if offered and language_code not in offered:
+            raise HTTPException(
+                status_code=400,
+                detail="Audio language '" + language_code + "' is not available for this video",
+            )
+
+    audio_track = _default_audio_track(database, video_id, language_code)
+    _playersettings_object.activeAudioTrack_id = audio_track.id if audio_track else None
+    _playersettings_object.activeLanguageCode = language_code
+
+    database.commit()
+    database.refresh(_playersettings_object)
+    return {
+        "playersettings": _playersettings_snapshot(_playersettings_object),
+        "activeLanguageCode": _playersettings_object.activeLanguageCode,
+        "activeAudioTrack": _playersettings_snapshot(audio_track) if audio_track else None,
+    }
+
+
+@router.post("/playersettings/{playersettings_id}/methods/changeSubtitleLanguage/", response_model=None, tags=["PlayerSettings Methods"])
+async def execute_playersettings_changeSubtitleLanguage(
+    playersettings_id: int,  # the PlayerSettings that changeSubtitleLanguage runs on
+    params: dict = Body(default=None),
+    database: Session = Depends(get_db)
+):
+    """Switch the subtitle language without touching the narration audio.
+
+    Parameters:
+    - languageCode: str
+    """
+    _playersettings_object = database.query(PlayerSettings).filter(PlayerSettings.id == playersettings_id).first()
+    if _playersettings_object is None:
+        raise HTTPException(status_code=404, detail="PlayerSettings not found")
+    language_code = _require_param(params, "languageCode")
+    if not isinstance(language_code, str) or not language_code.strip():
+        raise HTTPException(status_code=400, detail="Parameter 'languageCode' must be a non-empty string")
+    language_code = language_code.strip()
+
+    video_id = _playersettings_object.currentVideo_id
+    if video_id is not None:
+        offered = {
+            code for (code,) in database.query(Subtitle.languageCode).join(
+                subtitlevideo, Subtitle.id == subtitlevideo.c["subtitles"]
+            ).filter(subtitlevideo.c["subtitleVideo"] == video_id).distinct().all()
+        }
+        if offered and language_code not in offered:
+            raise HTTPException(
+                status_code=400,
+                detail="Subtitle language '" + language_code + "' is not available for this video",
+            )
+
+    subtitle = _default_subtitle(database, video_id, language_code)
+    _playersettings_object.activeSubtitle_id = subtitle.id if subtitle else None
+
+    database.commit()
+    database.refresh(_playersettings_object)
+    return {
+        "playersettings": _playersettings_snapshot(_playersettings_object),
+        "activeSubtitle": _playersettings_snapshot(subtitle) if subtitle else None,
+    }
+
+
 @router.post("/playersettings/{playersettings_id}/methods/loadVideo/", response_model=None, tags=["PlayerSettings Methods"])
 async def execute_playersettings_loadVideo(
     playersettings_id: int,  # the PlayerSettings that loadVideo runs on

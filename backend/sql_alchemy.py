@@ -126,6 +126,14 @@ class PlayerSettings(Base):
     activeSubtitle_id: Mapped_[int] = mapped_column(ForeignKey_("subtitle.id"), nullable=True)
     currentVideo_id: Mapped_[int] = mapped_column(ForeignKey_("video.id"), nullable=True)
 
+class Language(Base):
+    __tablename__ = "language"
+    id: Mapped_[int] = mapped_column(primary_key=True)
+    code: Mapped_[str] = mapped_column(String_(100))
+    name: Mapped_[str] = mapped_column(String_(100))
+    isSupportedForAudio: Mapped_[bool] = mapped_column(Boolean_)
+    isSupportedForSubtitles: Mapped_[bool] = mapped_column(Boolean_)
+
 class Character(Base):
     __tablename__ = "character"
     id: Mapped_[int] = mapped_column(primary_key=True)

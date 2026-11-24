@@ -2,13 +2,15 @@
 
 The lesson is an animated cartoon that teaches Newton's three laws. The frames
 are drawn with Pillow (flat cartoon shapes, bold outlines, speech bubbles) and
-encoded to MP4 with the ffmpeg binary bundled by imageio-ffmpeg. The narrated
-audio for the three language versions is synthesised as a tone bed, so the
-player really has three audio sources to switch between.
+encoded to MP4 with the ffmpeg binary bundled by imageio-ffmpeg. The narration
+for every supported language is spoken by a synthesised male voice (neural
+text-to-speech) that explains the three laws, so the player really has one
+male narration audio source per language to switch between.
 
 Run from the backend directory:  python make_media.py
 """
 
+import ctypes
 import math
 import os
 import struct
@@ -530,15 +532,120 @@ def build_avatars():
         print("wrote", path)
 
 
-def build_audio():
-    """A narration-ish tone bed per language, so the switch is audible."""
+# Male narration voices, one per lesson language: gTTS language/accent pair.
+# gTTS has no Luxembourgish voice, so the German voice reads the
+# Luxembourgish script - the closest available voice. Every voice is
+# pitch-deepened with ffmpeg so the narrator sounds male.
+TTS_VOICES = {
+    "en": ("en", "com.au"),
+    "es": ("es", "es"),
+    "fr": ("fr", "fr"),
+    "de": ("de", "de"),
+    "lb": ("de", "de"),
+    "pt": ("pt", "pt"),
+}
+
+# The male voice explains the three laws of motion in every language.
+NARRATIONS = {
+    "en": (
+        "Hello! I am Newton the Fox, and today we will learn my three laws of motion. "
+        "Law one: inertia. An object at rest stays at rest, and an object in motion "
+        "keeps moving, unless a force acts on it. Watch Inky the Ball: I push him once, "
+        "and he keeps rolling all by himself! "
+        "Law two: force equals mass times acceleration. The same push moves the light "
+        "balloon fast, but the heavy crate hardly moves at all. More mass means less "
+        "acceleration for the same force. "
+        "Law three: for every action there is an equal and opposite reaction. The rocket "
+        "pushes the flames down, and the flames push the rocket up! Forces always come "
+        "in pairs. Now you know Newton's three laws of motion. Well done!"
+    ),
+    "es": (
+        "Hola! Soy Newton el Zorro, y hoy aprenderemos mis tres leyes del movimiento. "
+        "Ley uno: la inercia. Un objeto en reposo sigue en reposo, y un objeto en "
+        "movimiento sigue moviendose, a menos que una fuerza actue sobre el. Miren a "
+        "Inky la Pelota: la empujo una vez, y sigue rodando sola! "
+        "Ley dos: la fuerza es igual a la masa por la aceleracion. El mismo empujon "
+        "mueve rapido el globo ligero, pero la caja pesada casi no se mueve. Mas masa "
+        "significa menos aceleracion con la misma fuerza. "
+        "Ley tres: a cada accion corresponde una reaccion igual y opuesta. El cohete "
+        "empuja las llamas hacia abajo, y las llamas empujan el cohete hacia arriba! "
+        "Las fuerzas siempre vienen en pares. Ya conocen las tres leyes de Newton! "
+        "Bien hecho!"
+    ),
+    "fr": (
+        "Bonjour! Je suis Newton le Renard, et aujourd'hui nous allons apprendre mes "
+        "trois lois du mouvement. Loi numero un: l'inertie. Un objet au repos reste au "
+        "repos, et un objet en mouvement continue a bouger, sauf si une force agit sur "
+        "lui. Regardez Inky la Balle: je la pousse une seule fois, et elle continue a "
+        "rouler toute seule! "
+        "Loi numero deux: la force egale la masse fois l'acceleration. La meme poussee "
+        "deplace vite le ballon leger, mais la lourde caisse bouge a peine. Plus de "
+        "masse signifie moins d'acceleration pour la meme force. "
+        "Loi numero trois: a chaque action correspond une reaction egale et opposee. "
+        "La fusee pousse les flammes vers le bas, et les flammes poussent la fusee vers "
+        "le haut! Les forces vont toujours par paires. Vous connaissez maintenant les "
+        "trois lois de Newton. Bravo!"
+    ),
+    "de": (
+        "Hallo! Ich bin Newton der Fuchs, und heute lernen wir meine drei "
+        "Bewegungsgesetze. Gesetz eins: die Traegheit. Ein ruhender Koerper bleibt in "
+        "Ruhe, und ein bewegter Koerper bewegt sich weiter, wenn keine Kraft auf ihn "
+        "wirkt. Schaut euch Inky den Ball an: Ich stosse ihn einmal an, und er rollt "
+        "ganz von allein weiter! "
+        "Gesetz zwei: Kraft ist gleich Masse mal Beschleunigung. Derselbe Stoss bewegt "
+        "den leichten Luftballon schnell, aber die schwere Kiste bewegt sich kaum. Mehr "
+        "Masse bedeutet weniger Beschleunigung bei gleicher Kraft. "
+        "Gesetz drei: Zu jeder Wirkung gibt es eine gleiche, entgegengesetzte "
+        "Gegenwirkung. Die Rakete stoest die Flammen nach unten, und die Flammen "
+        "stossen die Rakete nach oben! Kraefte treten immer paarweise auf. Jetzt kennt "
+        "ihr Newtons drei Bewegungsgesetze. Gut gemacht!"
+    ),
+    "lb": (
+        "Hallo! Ech sinn den Newton de Fuuss, an haut leiere mir meng drei "
+        "Beweegungsgesetzer. Gesetz eent: d'Traegheet. E Kierper a Rou bleift a Rou, "
+        "an e Kierper a Beweegung beweegt sech weider, wann keng Kraaft op hien "
+        "wierkt. Kuckt iech den Inky de Ball un: Ech stoussen hien eemol un, an hien "
+        "rullt ganz eleng weider! "
+        "Gesetz zwee: Kraaft ass glaich Mass mol Beschleunegung. Dee selwechte Stouss "
+        "beweegt de liichte Ballon seier, mei dei schweiier Kescht beweegt sech kaum. "
+        "Mei Mass bedeit manner Beschleunegung bei derselwechter Kraaft. "
+        "Gesetz drei: Zu all Wierkung gett et eng glaich, entgeintgesate "
+        "Geigewierkung. D'Rakeit steisst d'Flamen no ennen, an d'Flamen stoussen "
+        "d'Rakeit no uewen! Kraeften trieden emmer a Koppelen op. Elo kennt Dir dem "
+        "Newton seng drei Beweegungsgesetzer. Gutt gemaach!"
+    ),
+    "pt": (
+        "Ola! Eu sou o Newton, a Raposa, e hoje vamos aprender as minhas tres leis do "
+        "movimento. Lei um: a inercia. Um objeto em repouso permanece em repouso, e um "
+        "objeto em movimento continua a mover-se, a menos que uma forca aja sobre ele. "
+        "Vejam o Inky, a Bola: empurro-o uma vez, e ele continua a rolar sozinho! "
+        "Lei dois: a forca e igual a massa vezes a aceleracao. O mesmo empurrao move "
+        "rapido o balao leve, mas a caixa pesada quase nao se move. Mais massa "
+        "significa menos aceleracao para a mesma forca. "
+        "Lei tres: a cada acao corresponde uma reacao igual e oposta. O foguetao "
+        "empurra as chamas para baixo, e as chamas empurram o foguetao para cima! As "
+        "forcas surgem sempre aos pares. Agora ja conhecem as tres leis de Newton. "
+        "Muito bem!"
+    ),
+}
+
+
+def _build_audio_fallback():
+    """A narration-ish tone bed per language, so the switch stays audible.
+
+    Used only when the neural text-to-speech service cannot be reached; the
+    normal output is the male voice narration built by build_audio.
+    """
     import numpy as np
 
     rate = 22050
     specs = [
         ("en", 261.63, 0.0),
         ("es", 293.66, 0.15),
-        ("fr", 329.63, 0.30),
+        ("fr", 329.66, 0.30),
+        ("de", 311.13, 0.10),
+        ("lb", 349.23, 0.20),
+        ("pt", 392.00, 0.05),
     ]
     for code, base, detune in specs:
         samples = np.zeros(rate * DURATION, dtype=np.float32)
@@ -577,6 +684,61 @@ def build_audio():
         )
         os.remove(raw_path)
         print("wrote", path)
+
+
+def build_audio():
+    """Male voice narration per language, explaining the three laws.
+
+    Each language gets a male-sounding narration mp3 reading that language's
+    script (synthesised TTS, pitch-deepened so it sounds like a male teacher).
+    The 3-minute lesson video plays the chosen language's mp3 alongside it, so
+    switching the audio language switches the voice the students hear. Falls
+    back to a tone bed only when TTS is unreachable.
+    """
+    import subprocess
+    import tempfile
+
+    try:
+        from gtts import gTTS
+    except ImportError:
+        _build_audio_fallback()
+        return
+
+    def _masculinise(raw_path, out_path):
+        import imageio_ffmpeg
+
+        exe = imageio_ffmpeg.get_ffmpeg_exe()
+        stretched = os.path.join(AUDIO_DIR, "tmp-masculine.mp3")
+        subprocess.run(
+            [
+                exe, "-y", "-i", raw_path,
+                "-filter:a",
+                # Lower the pitch ~15% for a male-sounding voice, then pad/trim
+                # to the full lesson length so the narration covers the video.
+                f"asetrate=44100*0.87,aresample=44100,apad=whole_dur={DURATION},atrim=0:{DURATION}",
+                "-b:a", "96k", stretched,
+            ],
+            check=True,
+            capture_output=True,
+        )
+        os.replace(stretched, out_path)
+        print("wrote", out_path)
+
+    try:
+        for code, text in NARRATIONS.items():
+            lang, tld = TTS_VOICES[code]
+            path = os.path.join(AUDIO_DIR, f"newtons-laws-{code}.mp3")
+            with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as tmp:
+                raw = tmp.name
+            try:
+                gTTS(text, lang=lang, tld=tld, slow=False).save(raw)
+                _masculinise(raw, path)
+            finally:
+                if os.path.exists(raw):
+                    os.remove(raw)
+    except Exception as exc:
+        print("TTS failed, using tone fallback:", exc)
+        _build_audio_fallback()
 
 
 def build_subtitles():
@@ -634,7 +796,7 @@ def build_subtitles():
             (
                 78,
                 100,
-                "El mismo empuje mueve rapido el globo ligero, pero hardly mueve la caja pesada.",
+                "El mismo empuje mueve rapido el globo ligero, pero apenas mueve la caja pesada.",
             ),
             (100, 120, "Mas masa significa menos aceleracion para la misma fuerza."),
             (
@@ -684,6 +846,114 @@ def build_subtitles():
                 "La fusee pousse la flamme vers le bas, et la flamme pousse la fusee vers le haut.",
             ),
             (170, 180, "Vous connaissez maintenant les trois lois de Newton!"),
+        ],
+        "de": [
+            (0, 6, "Newtons drei Bewegungsgesetze - ein Cartoon-Abenteuer"),
+            (
+                6,
+                20,
+                "Gesetz 1: Traegheit. Ein Koerper bleibt in Ruhe oder Bewegung, wenn keine Kraft wirkt.",
+            ),
+            (
+                20,
+                36,
+                "Ich habe dich nicht mehr geschubst, Inky, aber du bist weitergerollt. Das ist Traegheit!",
+            ),
+            (
+                36,
+                60,
+                "Traegheit erklaert, warum ein voller Bus beim Bremsen nach vorne stuerzt.",
+            ),
+            (60, 78, "Gesetz 2: Kraft ist gleich Masse mal Beschleunigung. F = m x a."),
+            (
+                78,
+                100,
+                "Derselbe Stoss bewegt den leichten Ballon schnell, aber die schwere Kiste kaum.",
+            ),
+            (100, 120, "Mehr Masse bedeutet weniger Beschleunigung bei gleicher Kraft."),
+            (
+                120,
+                140,
+                "Gesetz 3: Zu jeder Wirkung gehoert eine gleiche, entgegengesetzte Gegenwirkung.",
+            ),
+            (
+                140,
+                170,
+                "Die Rakete stoest die Flammen nach unten, und die Flammen stossen die Rakete nach oben.",
+            ),
+            (170, 180, "Jetzt kennt ihr Newtons drei Bewegungsgesetze!"),
+        ],
+        "lb": [
+            (0, 6, "Dem Newton seng drei Beweegungsgesetzer - en Cartoon-Abenteuer"),
+            (
+                6,
+                20,
+                "Gesetz 1: D'Traegheet. E Kierper bleift a Rou oder Beweegung, wann keng Kraaft wierkt.",
+            ),
+            (
+                20,
+                36,
+                "Ech hunn dech net mei gestouss, Inky, mee du bass weidergerullt. Dat ass Traegheet!",
+            ),
+            (
+                36,
+                60,
+                "D'Traegheet erkläert, firwat e volle Bus beim Bremsen no vir faellt.",
+            ),
+            (60, 78, "Gesetz 2: Kraaft ass glaich Mass mol Beschleunegung. F = m x a."),
+            (
+                78,
+                100,
+                "Dee selwechte Stouss beweegt de liichte Ballon seier, mei d'schweiier Kescht kaum.",
+            ),
+            (100, 120, "Mei Mass bedeit manner Beschleunegung bei derselwechter Kraaft."),
+            (
+                120,
+                140,
+                "Gesetz 3: Zu all Wierkung gehéiert eng glaich, entgéintgesate Geigewierkung.",
+            ),
+            (
+                140,
+                170,
+                "D'Rakeit steisst d'Flamen no ennen, an d'Flamen stoussen d'Rakeit no uewen.",
+            ),
+            (170, 180, "Elo kennt Dir dem Newton seng drei Beweegungsgesetzer!"),
+        ],
+        "pt": [
+            (0, 6, "As tres leis de Newton - uma aventura de desenhos animados"),
+            (
+                6,
+                20,
+                "Lei 1: Inercia. Um objeto permanece em repouso ou movimento se nenhuma forca agir.",
+            ),
+            (
+                20,
+                36,
+                "Deixei de te empurrar, Inky, mas continuaste a rolar. Isso e inercia!",
+            ),
+            (
+                36,
+                60,
+                "A inercia explica por que um autocarro cheio se inclina ao travar.",
+            ),
+            (60, 78, "Lei 2: Forca igual a massa vezes aceleracao. F = m x a."),
+            (
+                78,
+                100,
+                "O mesmo empurrao move rapido o balao leve, mas quase nao move a caixa pesada.",
+            ),
+            (100, 120, "Mais massa significa menos aceleracao para a mesma forca."),
+            (
+                120,
+                140,
+                "Lei 3: A cada acao corresponde uma reacao igual e oposta.",
+            ),
+            (
+                140,
+                170,
+                "O foguetao empurra as chamas para baixo, e as chamas empurram o foguetao para cima.",
+            ),
+            (170, 180, "Agora ja conhecem as tres leis de Newton!"),
         ],
     }
     for code, cues in texts.items():

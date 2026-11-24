@@ -9,10 +9,8 @@ const LANGUAGE_LABELS = {
   es: 'Espanol',
   fr: 'Francais',
   de: 'Deutsch',
-  it: 'Italiano',
-  pt: 'Portugues',
-  ar: 'Arabic',
-  zh: 'Chinese'
+  lb: 'Letzebuergesch',
+  pt: 'Portugues'
 }
 
 function formatTime(seconds) {
@@ -26,6 +24,7 @@ export default function PlayerPage() {
   const navigate = useNavigate()
   const { videoId } = useParams()
   const videoRef = useRef(null)
+  const audioRef = useRef(null)
   const frameRef = useRef(null)
 
   const [videos, setVideos] = useState([])
@@ -44,6 +43,8 @@ export default function PlayerPage() {
   const [speed, setSpeed] = useState(1)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [languageCode, setLanguageCode] = useState('en')
+  const [audioLanguageCode, setAudioLanguageCode] = useState('en')
+  const [subtitleLanguageCode, setSubtitleLanguageCode] = useState('en')
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [playing, setPlaying] = useState(false)
@@ -95,7 +96,34 @@ export default function PlayerPage() {
 
       // The languages this video is available in.
       const languagePayload = await apiGet(`/video/${chosen.id}/languages/`)
-      setLanguages(languagePayload.languages || [])
+      const languageList = languagePayload.languages || []
+      setLanguages(languageList)
+
+      // Resolve the active narration and subtitle languages from the stored
+      // settings row (audio + subtitle ids) so the two selectors start in sync.
+      if (active) {
+        const audioCodes = new Set(
+          languageList.filter((item) => (item.audioTracks || []).length).map((item) => item.languageCode)
+        )
+        const subtitleCodes = new Set(
+          languageList.filter((item) => (item.subtitles || []).length).map((item) => item.languageCode)
+        )
+        const storedAudio =
+          (active.activeAudioTrack_id != null && (await apiGet(`/audiotrack/${active.activeAudioTrack_id}/`).catch(() => null))) ||
+          null
+        const storedSubtitle =
+          (active.activeSubtitle_id != null && (await apiGet(`/subtitle/${active.activeSubtitle_id}/`).catch(() => null))) ||
+          null
+        const storedAudioCode = storedAudio?.languageCode || storedAudio?.audiotrack?.languageCode
+        const storedSubtitleCode = storedSubtitle?.languageCode || storedSubtitle?.subtitle?.languageCode
+        const preferredAudio = storedAudioCode || active.activeLanguageCode || 'en'
+        const preferredSubtitle = storedSubtitleCode || active.activeLanguageCode || 'en'
+        setAudioLanguageCode(audioCodes.has(preferredAudio) ? preferredAudio : (languageList[0]?.languageCode || 'en'))
+        setSubtitleLanguageCode(
+          subtitleCodes.has(preferredSubtitle) ? preferredSubtitle : (languageList[0]?.languageCode || 'en')
+        )
+        setLanguageCode(active.activeLanguageCode || preferredAudio)
+      }
       setLoading(false)
     } catch (err) {
       setError(err.message || 'The lesson could not be loaded.')
@@ -118,27 +146,71 @@ export default function PlayerPage() {
     element.playbackRate = speed
   }, [volume, muted, speed])
 
-  // Swap the audio source and the subtitle track when the language changes.
-  const activeLanguage = useMemo(
-    () => languages.find((item) => item.languageCode === languageCode) || null,
-    [languages, languageCode]
+  // The narration audio and the subtitle track follow two independent selectors.
+  const activeAudioLanguage = useMemo(
+    () => languages.find((item) => item.languageCode === audioLanguageCode) || null,
+    [languages, audioLanguageCode]
+  )
+
+  const activeSubtitleLanguage = useMemo(
+    () => languages.find((item) => item.languageCode === subtitleLanguageCode) || null,
+    [languages, subtitleLanguageCode]
   )
 
   const audioTrack = useMemo(() => {
-    if (!activeLanguage || !activeLanguage.audioTracks.length) return null
+    if (!activeAudioLanguage || !activeAudioLanguage.audioTracks.length) return null
     return (
-      activeLanguage.audioTracks.find((track) => track.isDefault) ||
-      activeLanguage.audioTracks[0]
+      activeAudioLanguage.audioTracks.find((track) => track.isDefault) ||
+      activeAudioLanguage.audioTracks[0]
     )
-  }, [activeLanguage])
+  }, [activeAudioLanguage])
 
   const subtitleTrack = useMemo(() => {
-    if (!activeLanguage || !activeLanguage.subtitles.length) return null
+    if (!activeSubtitleLanguage || !activeSubtitleLanguage.subtitles.length) return null
     return (
-      activeLanguage.subtitles.find((track) => track.isEnabledByDefault) ||
-      activeLanguage.subtitles[0]
+      activeSubtitleLanguage.subtitles.find((track) => track.isEnabledByDefault) ||
+      activeSubtitleLanguage.subtitles[0]
     )
-  }, [activeLanguage])
+  }, [activeSubtitleLanguage])
+
+  // Keep the narration audio element in lockstep with the video.
+  useEffect(() => {
+    const narration = audioRef.current
+    const picture = videoRef.current
+    if (!narration || !picture) return
+    narration.volume = muted ? 0 : volume
+    narration.playbackRate = speed
+    try {
+      narration.currentTime = Math.min(picture.currentTime || 0, narration.duration || 0)
+    } catch {
+      // The narration track is not seekable yet; it syncs on the next tick.
+    }
+  }, [audioTrack, volume, muted, speed])
+
+  useEffect(() => {
+    const narration = audioRef.current
+    const picture = videoRef.current
+    if (!narration || !picture) return
+    if (playing) {
+      try {
+        narration.currentTime = Math.min(picture.currentTime || 0, narration.duration || 0)
+      } catch {
+        // Not seekable yet; playback still starts from the current position.
+      }
+      narration.play().catch(() => {
+        setNotice('The browser blocked the narration audio. Press play again to hear it.')
+      })
+    } else {
+      narration.pause()
+    }
+  }, [playing, audioTrack])
+
+  useEffect(() => {
+    const narration = audioRef.current
+    const picture = videoRef.current
+    if (!narration || !picture) return
+    narration.playbackRate = speed
+  }, [speed])
 
   // ------------------------------------------------------- backend actions
 
@@ -177,6 +249,7 @@ export default function PlayerPage() {
 
   const handlePlay = async () => {
     const element = videoRef.current
+    const narration = audioRef.current
     if (element) {
       try {
         await element.play()
@@ -185,12 +258,23 @@ export default function PlayerPage() {
         setNotice('The browser blocked autoplay. Press play again to start the lesson.')
       }
     }
+    if (narration && element) {
+      try {
+        narration.currentTime = Math.min(element.currentTime || 0, narration.duration || 0)
+      } catch {
+        // Not seekable yet; narration still starts alongside the video.
+      }
+      narration.play().catch(() => {
+        setNotice('The browser blocked the narration audio. Press play again to hear it.')
+      })
+    }
     await callAction('play')
   }
 
   const handlePause = async () => {
     const element = videoRef.current
     if (element) element.pause()
+    if (audioRef.current) audioRef.current.pause()
     setPlaying(false)
     await callAction('pause')
   }
@@ -201,6 +285,14 @@ export default function PlayerPage() {
       element.pause()
       element.currentTime = 0
     }
+    if (audioRef.current) {
+      audioRef.current.pause()
+      try {
+        audioRef.current.currentTime = 0
+      } catch {
+        // Narration not seekable yet; it restarts from the beginning anyway.
+      }
+    }
     setPlaying(false)
     setCurrentTime(0)
     await callAction('stop')
@@ -210,6 +302,16 @@ export default function PlayerPage() {
     const element = videoRef.current
     const target = Math.max(0, Math.floor(seconds))
     if (element) element.currentTime = target
+    if (audioRef.current) {
+      try {
+        audioRef.current.currentTime = Math.min(target, audioRef.current.duration || target)
+      } catch {
+        // Narration not seekable yet; it catches up on the next tick.
+      }
+      if (playing) {
+        audioRef.current.play().catch(() => {})
+      }
+    }
     setCurrentTime(target)
     await callAction('seek', { timeSeconds: target })
   }
@@ -251,11 +353,35 @@ export default function PlayerPage() {
     }
   }
 
-  const handleLanguage = async (code) => {
-    const payload = await callAction('changeLanguage', { languageCode: code })
+  const handleAudioLanguage = async (code) => {
+    const payload = await callAction('changeAudioLanguage', { languageCode: code })
     if (payload) {
+      setAudioLanguageCode(code)
       setLanguageCode(code)
-      setNotice(`Language switched to ${LANGUAGE_LABELS[code] || code}.`)
+      // Restart the narration in the new language from the current position.
+      const narration = audioRef.current
+      const picture = videoRef.current
+      if (narration && picture) {
+        const position = picture.currentTime || 0
+        const apply = () => {
+          try {
+            narration.currentTime = Math.min(position, narration.duration || position)
+          } catch {
+            // Not seekable yet; it still plays the new language.
+          }
+          if (playing) narration.play().catch(() => {})
+        }
+        apply()
+      }
+      setNotice(`Narration language switched to ${LANGUAGE_LABELS[code] || code}.`)
+    }
+  }
+
+  const handleSubtitleLanguage = async (code) => {
+    const payload = await callAction('changeSubtitleLanguage', { languageCode: code })
+    if (payload) {
+      setSubtitleLanguageCode(code)
+      setNotice(`Subtitle language switched to ${LANGUAGE_LABELS[code] || code}.`)
     }
   }
 
@@ -339,9 +465,28 @@ export default function PlayerPage() {
               poster={video.thumbnailUrl}
               controls
               preload="metadata"
-              onTimeUpdate={(event) => setCurrentTime(event.target.currentTime)}
+              onTimeUpdate={(event) => {
+                setCurrentTime(event.target.currentTime)
+                const narration = audioRef.current
+                if (narration && playing && !narration.paused) {
+                  const drift = Math.abs((narration.currentTime || 0) - event.target.currentTime)
+                  if (drift > 0.6) {
+                    try {
+                      narration.currentTime = Math.min(
+                        event.target.currentTime,
+                        narration.duration || event.target.currentTime
+                      )
+                    } catch {
+                      // Narration not seekable yet; it catches up on the next tick.
+                    }
+                  }
+                }
+              }}
               onLoadedMetadata={(event) => setDuration(event.target.duration || video.durationSeconds)}
-              onEnded={() => setPlaying(false)}
+              onEnded={() => {
+                setPlaying(false)
+                if (audioRef.current) audioRef.current.pause()
+              }}
               onPlay={() => setPlaying(true)}
               onPause={() => setPlaying(false)}
             >
@@ -356,6 +501,31 @@ export default function PlayerPage() {
                 />
               )}
             </video>
+            {/* The cartoon video file is silent; the male narration plays here, in
+                sync with the picture, and follows the audio language selector. */}
+            {audioTrack && (
+              <audio
+                ref={audioRef}
+                key={audioTrack.id}
+                src={audioTrack.fileUrl}
+                preload="auto"
+                onLoadedMetadata={() => {
+                  const narration = audioRef.current
+                  const picture = videoRef.current
+                  if (narration && picture && playing) {
+                    try {
+                      narration.currentTime = Math.min(
+                        picture.currentTime || 0,
+                        narration.duration || 0
+                      )
+                    } catch {
+                      // Not seekable yet; playback still starts alongside the video.
+                    }
+                    narration.play().catch(() => {})
+                  }
+                }}
+              />
+            )}
           </div>
 
           <div className="player-controls">
@@ -434,22 +604,43 @@ export default function PlayerPage() {
             </div>
 
             <div className="control-row">
-              <span className="control-label">Language</span>
+              <span className="control-label">Audio language</span>
               <select
                 className="control-select"
-                value={languageCode}
-                onChange={(event) => handleLanguage(event.target.value)}
-                aria-label="Video language"
+                value={audioLanguageCode}
+                onChange={(event) => handleAudioLanguage(event.target.value)}
+                aria-label="Narration audio language"
               >
-                {languages.length === 0 && <option value={languageCode}>{languageCode}</option>}
-                {languages.map((item) => (
-                  <option key={item.languageCode} value={item.languageCode}>
-                    {LANGUAGE_LABELS[item.languageCode] || item.languageCode}
-                  </option>
-                ))}
+                {languages.length === 0 && <option value={audioLanguageCode}>{audioLanguageCode}</option>}
+                {languages
+                  .filter((item) => (item.audioTracks || []).length)
+                  .map((item) => (
+                    <option key={item.languageCode} value={item.languageCode}>
+                      {LANGUAGE_LABELS[item.languageCode] || item.languageCode}
+                    </option>
+                  ))}
               </select>
-              {audioTrack && <span className="state-pill">Audio: {audioTrack.languageCode}</span>}
-              {subtitleTrack && <span className="state-pill">Subtitles: {subtitleTrack.languageCode}</span>}
+              {audioTrack && <span className="state-pill">Audio: {LANGUAGE_LABELS[audioTrack.languageCode] || audioTrack.languageCode}</span>}
+            </div>
+
+            <div className="control-row">
+              <span className="control-label">Subtitle language</span>
+              <select
+                className="control-select"
+                value={subtitleLanguageCode}
+                onChange={(event) => handleSubtitleLanguage(event.target.value)}
+                aria-label="Subtitle language"
+              >
+                {languages.length === 0 && <option value={subtitleLanguageCode}>{subtitleLanguageCode}</option>}
+                {languages
+                  .filter((item) => (item.subtitles || []).length)
+                  .map((item) => (
+                    <option key={item.languageCode} value={item.languageCode}>
+                      {LANGUAGE_LABELS[item.languageCode] || item.languageCode}
+                    </option>
+                  ))}
+              </select>
+              {subtitleTrack && <span className="state-pill">Subtitles: {LANGUAGE_LABELS[subtitleTrack.languageCode] || subtitleTrack.languageCode}</span>}
             </div>
           </div>
         </div>
