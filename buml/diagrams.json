@@ -1,0 +1,2213 @@
+{
+  "project": {
+    "id": "c3a22b0e-33fc-4521-833f-927f870eab15",
+    "type": "Project",
+    "schemaVersion": 6,
+    "name": "Teaching_app",
+    "description": "",
+    "owner": "BESSER User",
+    "createdAt": "2026-11-24T16:30:47.375Z",
+    "currentDiagramType": "ClassDiagram",
+    "currentDiagramIndices": {
+      "ClassDiagram": 0,
+      "ObjectDiagram": 0,
+      "StateMachineDiagram": 0,
+      "AgentDiagram": 0,
+      "ComponentDiagram": 0,
+      "DeploymentDiagram": 0,
+      "UserDiagram": 0,
+      "GUINoCodeDiagram": 0,
+      "KnowledgeGraphDiagram": 0,
+      "QuantumCircuitDiagram": 0,
+      "NNDiagram": 0,
+      "BPMN": 0
+    },
+    "diagrams": {
+      "ClassDiagram": [
+        {
+          "id": "c79ac27d-f4bc-4031-a58b-8d21c9287dd3",
+          "title": "Class Diagram",
+          "model": {
+            "version": "3.0.0",
+            "type": "ClassDiagram",
+            "size": {
+              "width": 1078.1385447184243,
+              "height": 1542.2000007629395
+            },
+            "interactive": {
+              "elements": {},
+              "relationships": {}
+            },
+            "elements": {
+              "class_pu96kyhyn_mwuwz0dg_oyl": {
+                "id": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "name": "Video",
+                "type": "Class",
+                "owner": null,
+                "bounds": {
+                  "x": -296.16666666666663,
+                  "y": 452.5,
+                  "width": 220,
+                  "height": 240
+                },
+                "attributes": [
+                  "attr_z746rj22u_mwuwz0dg_fdx",
+                  "attr_m5rak6zh9_mwuwz0dg_10f",
+                  "attr_75utvlmza_mwuwz0dg_ol0",
+                  "attr_aj0pvcckk_mwuwz0dg_ewy",
+                  "attr_cqg84whqx_mwuwz0dg_osz",
+                  "attr_auuabzglu_mwuwz0dg_n7w",
+                  "attr_hljo665x4_mwuwz0dg_zed",
+                  "attr_yzn7fprzf_mwuwz0dg_rq3"
+                ],
+                "methods": []
+              },
+              "attr_z746rj22u_mwuwz0dg_fdx": {
+                "id": "attr_z746rj22u_mwuwz0dg_fdx",
+                "name": "title",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 493,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_m5rak6zh9_mwuwz0dg_10f": {
+                "id": "attr_m5rak6zh9_mwuwz0dg_10f",
+                "name": "description",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 518,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_75utvlmza_mwuwz0dg_ol0": {
+                "id": "attr_75utvlmza_mwuwz0dg_ol0",
+                "name": "durationSeconds",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 543,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_aj0pvcckk_mwuwz0dg_ewy": {
+                "id": "attr_aj0pvcckk_mwuwz0dg_ewy",
+                "name": "thumbnailUrl",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 568,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_cqg84whqx_mwuwz0dg_osz": {
+                "id": "attr_cqg84whqx_mwuwz0dg_osz",
+                "name": "fileUrl",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 593,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_auuabzglu_mwuwz0dg_n7w": {
+                "id": "attr_auuabzglu_mwuwz0dg_n7w",
+                "name": "learningObjectives",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 618,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_hljo665x4_mwuwz0dg_zed": {
+                "id": "attr_hljo665x4_mwuwz0dg_zed",
+                "name": "creationDate",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 643,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "datetime",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_yzn7fprzf_mwuwz0dg_rq3": {
+                "id": "attr_yzn7fprzf_mwuwz0dg_rq3",
+                "name": "version",
+                "type": "ClassAttribute",
+                "owner": "class_pu96kyhyn_mwuwz0dg_oyl",
+                "bounds": {
+                  "x": -295.66666666666663,
+                  "y": 668,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "class_gv6vkoldp_mwuwz0dg_izi": {
+                "id": "class_gv6vkoldp_mwuwz0dg_izi",
+                "name": "Scene",
+                "type": "Class",
+                "owner": null,
+                "bounds": {
+                  "x": -362.16666666666663,
+                  "y": 150.83333333333337,
+                  "width": 220,
+                  "height": 165
+                },
+                "attributes": [
+                  "attr_vpv1fn3pg_mwuwz0dg_4iv",
+                  "attr_jabzu9cy8_mwuwz0dg_5zr",
+                  "attr_77qvgisfc_mwuwz0dg_xxy",
+                  "attr_lmet44rmv_mwuwz0dg_f0l",
+                  "attr_asx0ahc2t_mwuwz0dg_9sj"
+                ],
+                "methods": []
+              },
+              "attr_vpv1fn3pg_mwuwz0dg_4iv": {
+                "id": "attr_vpv1fn3pg_mwuwz0dg_4iv",
+                "name": "sequenceIndex",
+                "type": "ClassAttribute",
+                "owner": "class_gv6vkoldp_mwuwz0dg_izi",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": 191.33333333333337,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_jabzu9cy8_mwuwz0dg_5zr": {
+                "id": "attr_jabzu9cy8_mwuwz0dg_5zr",
+                "name": "title",
+                "type": "ClassAttribute",
+                "owner": "class_gv6vkoldp_mwuwz0dg_izi",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": 216.33333333333337,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_77qvgisfc_mwuwz0dg_xxy": {
+                "id": "attr_77qvgisfc_mwuwz0dg_xxy",
+                "name": "startTimeSeconds",
+                "type": "ClassAttribute",
+                "owner": "class_gv6vkoldp_mwuwz0dg_izi",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": 241.33333333333337,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_lmet44rmv_mwuwz0dg_f0l": {
+                "id": "attr_lmet44rmv_mwuwz0dg_f0l",
+                "name": "endTimeSeconds",
+                "type": "ClassAttribute",
+                "owner": "class_gv6vkoldp_mwuwz0dg_izi",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": 266.33333333333337,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_asx0ahc2t_mwuwz0dg_9sj": {
+                "id": "attr_asx0ahc2t_mwuwz0dg_9sj",
+                "name": "storyboardNotes",
+                "type": "ClassAttribute",
+                "owner": "class_gv6vkoldp_mwuwz0dg_izi",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": 291.33333333333337,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "class_z40pzxh6i_mwuwz0dg_pbh": {
+                "id": "class_z40pzxh6i_mwuwz0dg_pbh",
+                "name": "Character",
+                "type": "Class",
+                "owner": null,
+                "bounds": {
+                  "x": -398.8333333333333,
+                  "y": -272.5,
+                  "width": 220,
+                  "height": 140
+                },
+                "attributes": [
+                  "attr_h5l04lcz0_mwuwz0dg_047",
+                  "attr_ktjm38n3z_mwuwz0dg_26a",
+                  "attr_6w3ofga9r_mwuwz0dg_sjt",
+                  "attr_gfdgfibtl_mwuwz0dg_66x"
+                ],
+                "methods": []
+              },
+              "attr_h5l04lcz0_mwuwz0dg_047": {
+                "id": "attr_h5l04lcz0_mwuwz0dg_047",
+                "name": "name",
+                "type": "ClassAttribute",
+                "owner": "class_z40pzxh6i_mwuwz0dg_pbh",
+                "bounds": {
+                  "x": -398.3333333333333,
+                  "y": -232,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_ktjm38n3z_mwuwz0dg_26a": {
+                "id": "attr_ktjm38n3z_mwuwz0dg_26a",
+                "name": "role",
+                "type": "ClassAttribute",
+                "owner": "class_z40pzxh6i_mwuwz0dg_pbh",
+                "bounds": {
+                  "x": -398.3333333333333,
+                  "y": -207,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_6w3ofga9r_mwuwz0dg_sjt": {
+                "id": "attr_6w3ofga9r_mwuwz0dg_sjt",
+                "name": "avatarImageUrl",
+                "type": "ClassAttribute",
+                "owner": "class_z40pzxh6i_mwuwz0dg_pbh",
+                "bounds": {
+                  "x": -398.3333333333333,
+                  "y": -182,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_gfdgfibtl_mwuwz0dg_66x": {
+                "id": "attr_gfdgfibtl_mwuwz0dg_66x",
+                "name": "voiceActor",
+                "type": "ClassAttribute",
+                "owner": "class_z40pzxh6i_mwuwz0dg_pbh",
+                "bounds": {
+                  "x": -398.3333333333333,
+                  "y": -157,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "class_qdafj90tk_mwuwz0dg_p1z": {
+                "id": "class_qdafj90tk_mwuwz0dg_p1z",
+                "name": "Animation",
+                "type": "Class",
+                "owner": null,
+                "bounds": {
+                  "x": -362.16666666666663,
+                  "y": -712.5,
+                  "width": 220,
+                  "height": 165
+                },
+                "attributes": [
+                  "attr_on1725goo_mwuwz0dg_540",
+                  "attr_lq3emzg3z_mwuwz0dg_d4f",
+                  "attr_lk6ldsmex_mwuwz0dg_bhy",
+                  "attr_sdiq741wi_mwuwz0dg_e2g",
+                  "attr_sgdc2hh8x_mwuwz0dg_d1l"
+                ],
+                "methods": []
+              },
+              "attr_on1725goo_mwuwz0dg_540": {
+                "id": "attr_on1725goo_mwuwz0dg_540",
+                "name": "animationType",
+                "type": "ClassAttribute",
+                "owner": "class_qdafj90tk_mwuwz0dg_p1z",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": -672,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_lq3emzg3z_mwuwz0dg_d4f": {
+                "id": "attr_lq3emzg3z_mwuwz0dg_d4f",
+                "name": "startTimeSeconds",
+                "type": "ClassAttribute",
+                "owner": "class_qdafj90tk_mwuwz0dg_p1z",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": -647,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_lk6ldsmex_mwuwz0dg_bhy": {
+                "id": "attr_lk6ldsmex_mwuwz0dg_bhy",
+                "name": "endTimeSeconds",
+                "type": "ClassAttribute",
+                "owner": "class_qdafj90tk_mwuwz0dg_p1z",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": -622,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_sdiq741wi_mwuwz0dg_e2g": {
+                "id": "attr_sdiq741wi_mwuwz0dg_e2g",
+                "name": "parameters",
+                "type": "ClassAttribute",
+                "owner": "class_qdafj90tk_mwuwz0dg_p1z",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": -597,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_sgdc2hh8x_mwuwz0dg_d1l": {
+                "id": "attr_sgdc2hh8x_mwuwz0dg_d1l",
+                "name": "targetObjectId",
+                "type": "ClassAttribute",
+                "owner": "class_qdafj90tk_mwuwz0dg_p1z",
+                "bounds": {
+                  "x": -361.66666666666663,
+                  "y": -572,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": true,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "class_8m1th29v4_mwuwz0dg_o9r": {
+                "id": "class_8m1th29v4_mwuwz0dg_o9r",
+                "name": "AudioTrack",
+                "type": "Class",
+                "owner": null,
+                "bounds": {
+                  "x": 158.83333333333331,
+                  "y": 142.5,
+                  "width": 220,
+                  "height": 190
+                },
+                "attributes": [
+                  "attr_p9r7o5jfv_mwuwz0dg_i1r",
+                  "attr_iwdas2e93_mwuwz0dg_9ws",
+                  "attr_ha5w2ct36_mwuwz0dg_jya",
+                  "attr_1imlbywxu_mwuwz0dg_sfv",
+                  "attr_a0k8vv2sx_mwuwz0dg_dht",
+                  "attr_e4fqeus83_mwuwz0dg_eo8"
+                ],
+                "methods": []
+              },
+              "attr_p9r7o5jfv_mwuwz0dg_i1r": {
+                "id": "attr_p9r7o5jfv_mwuwz0dg_i1r",
+                "name": "languageCode",
+                "type": "ClassAttribute",
+                "owner": "class_8m1th29v4_mwuwz0dg_o9r",
+                "bounds": {
+                  "x": 159.33333333333331,
+                  "y": 183,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_iwdas2e93_mwuwz0dg_9ws": {
+                "id": "attr_iwdas2e93_mwuwz0dg_9ws",
+                "name": "kind",
+                "type": "ClassAttribute",
+                "owner": "class_8m1th29v4_mwuwz0dg_o9r",
+                "bounds": {
+                  "x": 159.33333333333331,
+                  "y": 208,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_ha5w2ct36_mwuwz0dg_jya": {
+                "id": "attr_ha5w2ct36_mwuwz0dg_jya",
+                "name": "fileUrl",
+                "type": "ClassAttribute",
+                "owner": "class_8m1th29v4_mwuwz0dg_o9r",
+                "bounds": {
+                  "x": 159.33333333333331,
+                  "y": 233,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_1imlbywxu_mwuwz0dg_sfv": {
+                "id": "attr_1imlbywxu_mwuwz0dg_sfv",
+                "name": "durationSeconds",
+                "type": "ClassAttribute",
+                "owner": "class_8m1th29v4_mwuwz0dg_o9r",
+                "bounds": {
+                  "x": 159.33333333333331,
+                  "y": 258,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_a0k8vv2sx_mwuwz0dg_dht": {
+                "id": "attr_a0k8vv2sx_mwuwz0dg_dht",
+                "name": "volumeLevelDefault",
+                "type": "ClassAttribute",
+                "owner": "class_8m1th29v4_mwuwz0dg_o9r",
+                "bounds": {
+                  "x": 159.33333333333331,
+                  "y": 283,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "float",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_e4fqeus83_mwuwz0dg_eo8": {
+                "id": "attr_e4fqeus83_mwuwz0dg_eo8",
+                "name": "isDefault",
+                "type": "ClassAttribute",
+                "owner": "class_8m1th29v4_mwuwz0dg_o9r",
+                "bounds": {
+                  "x": 159.33333333333331,
+                  "y": 308,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "bool",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "class_xpmbqcseo_mwuwz0dg_bj4": {
+                "id": "class_xpmbqcseo_mwuwz0dg_bj4",
+                "name": "Subtitle",
+                "type": "Class",
+                "owner": null,
+                "bounds": {
+                  "x": -121.16666666666669,
+                  "y": 167.5,
+                  "width": 220,
+                  "height": 140
+                },
+                "attributes": [
+                  "attr_mfiopufg3_mwuwz0dg_jhj",
+                  "attr_71yu81xl0_mwuwz0dg_icw",
+                  "attr_ebt846ea7_mwuwz0dg_z3t",
+                  "attr_r7qigtpz2_mwuwz0dg_opu"
+                ],
+                "methods": []
+              },
+              "attr_mfiopufg3_mwuwz0dg_jhj": {
+                "id": "attr_mfiopufg3_mwuwz0dg_jhj",
+                "name": "languageCode",
+                "type": "ClassAttribute",
+                "owner": "class_xpmbqcseo_mwuwz0dg_bj4",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": 208,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_71yu81xl0_mwuwz0dg_icw": {
+                "id": "attr_71yu81xl0_mwuwz0dg_icw",
+                "name": "format",
+                "type": "ClassAttribute",
+                "owner": "class_xpmbqcseo_mwuwz0dg_bj4",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": 233,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_ebt846ea7_mwuwz0dg_z3t": {
+                "id": "attr_ebt846ea7_mwuwz0dg_z3t",
+                "name": "fileUrl",
+                "type": "ClassAttribute",
+                "owner": "class_xpmbqcseo_mwuwz0dg_bj4",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": 258,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_r7qigtpz2_mwuwz0dg_opu": {
+                "id": "attr_r7qigtpz2_mwuwz0dg_opu",
+                "name": "isEnabledByDefault",
+                "type": "ClassAttribute",
+                "owner": "class_xpmbqcseo_mwuwz0dg_bj4",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": 283,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "bool",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "class_ri5xz9nhm_mwuwz0dg_r2c": {
+                "id": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "name": "PlayerSettings",
+                "type": "Class",
+                "owner": null,
+                "bounds": {
+                  "x": -121.16666666666669,
+                  "y": -427.5,
+                  "width": 220,
+                  "height": 440
+                },
+                "attributes": [
+                  "attr_u9hoko35b_mwuwz0dg_lgc",
+                  "attr_w6ukvnfw7_mwuwz0dg_eis",
+                  "attr_sa2czj1uj_mwuwz0dg_rta",
+                  "attr_9xv33aclo_mwuwz0dg_8i9",
+                  "attr_x1bq31gab_mwuwz0dg_b12",
+                  "attr_go9t6n2g8_mwuwz0dg_cdu",
+                  "attr_4wb0ax1os_mwuwz0dg_fa3"
+                ],
+                "methods": [
+                  "method_8yh4kquuj_mwuwz0dg_n4o",
+                  "method_fi3fd3c9y_mwuwz0dg_ijr",
+                  "method_4ehyppxv0_mwuwz0dg_qc6",
+                  "method_i3cxjix7d_mwuwz0dg_3vd",
+                  "method_98u74pjgz_mwuwz0dg_cuk",
+                  "method_aorxn1pcf_mwuwz0dg_i7w",
+                  "method_6t39su6ov_mwuwz0dg_x1u",
+                  "method_0otveg218_mwuwz0dh_yoi",
+                  "method_hkcm4uvg7_mwuwz0dh_1sg"
+                ]
+              },
+              "attr_u9hoko35b_mwuwz0dg_lgc": {
+                "id": "attr_u9hoko35b_mwuwz0dg_lgc",
+                "name": "volume",
+                "type": "ClassAttribute",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -387,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "float",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_w6ukvnfw7_mwuwz0dg_eis": {
+                "id": "attr_w6ukvnfw7_mwuwz0dg_eis",
+                "name": "isFullScreen",
+                "type": "ClassAttribute",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -362,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "bool",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_sa2czj1uj_mwuwz0dg_rta": {
+                "id": "attr_sa2czj1uj_mwuwz0dg_rta",
+                "name": "playbackSpeed",
+                "type": "ClassAttribute",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -337,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "float",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_9xv33aclo_mwuwz0dg_8i9": {
+                "id": "attr_9xv33aclo_mwuwz0dg_8i9",
+                "name": "activeLanguageCode",
+                "type": "ClassAttribute",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -312,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "str",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_x1bq31gab_mwuwz0dg_b12": {
+                "id": "attr_x1bq31gab_mwuwz0dg_b12",
+                "name": "isMuted",
+                "type": "ClassAttribute",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -287,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "bool",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_go9t6n2g8_mwuwz0dg_cdu": {
+                "id": "attr_go9t6n2g8_mwuwz0dg_cdu",
+                "name": "currentTimeSeconds",
+                "type": "ClassAttribute",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -262,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "int",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "attr_4wb0ax1os_mwuwz0dg_fa3": {
+                "id": "attr_4wb0ax1os_mwuwz0dg_fa3",
+                "name": "isLooping",
+                "type": "ClassAttribute",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -237,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "bool",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_8yh4kquuj_mwuwz0dg_n4o": {
+                "id": "method_8yh4kquuj_mwuwz0dg_n4o",
+                "name": "play()",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -212,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_fi3fd3c9y_mwuwz0dg_ijr": {
+                "id": "method_fi3fd3c9y_mwuwz0dg_ijr",
+                "name": "pause()",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -187,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_4ehyppxv0_mwuwz0dg_qc6": {
+                "id": "method_4ehyppxv0_mwuwz0dg_qc6",
+                "name": "stop()",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -162,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_i3cxjix7d_mwuwz0dg_3vd": {
+                "id": "method_i3cxjix7d_mwuwz0dg_3vd",
+                "name": "loadVideo(videoId: str)",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -137,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_98u74pjgz_mwuwz0dg_cuk": {
+                "id": "method_98u74pjgz_mwuwz0dg_cuk",
+                "name": "setVolume(level: float)",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -112,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_aorxn1pcf_mwuwz0dg_i7w": {
+                "id": "method_aorxn1pcf_mwuwz0dg_i7w",
+                "name": "toggleFullScreen()",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -87,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_6t39su6ov_mwuwz0dg_x1u": {
+                "id": "method_6t39su6ov_mwuwz0dg_x1u",
+                "name": "setPlaybackSpeed(speed: float)",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -62,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_0otveg218_mwuwz0dh_yoi": {
+                "id": "method_0otveg218_mwuwz0dh_yoi",
+                "name": "changeLanguage(languageCode: str)",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -37,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              },
+              "method_hkcm4uvg7_mwuwz0dh_1sg": {
+                "id": "method_hkcm4uvg7_mwuwz0dh_1sg",
+                "name": "seek(timeSeconds: int)",
+                "type": "ClassMethod",
+                "owner": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                "bounds": {
+                  "x": -120.66666666666669,
+                  "y": -12,
+                  "width": 219,
+                  "height": 25
+                },
+                "code": "",
+                "visibility": "public",
+                "attributeType": "any",
+                "implementationType": "none",
+                "stateMachineId": "",
+                "quantumCircuitId": "",
+                "neuralNetworkId": "",
+                "isOptional": false,
+                "isDerived": false,
+                "isId": false,
+                "isExternalId": false
+              }
+            },
+            "relationships": {
+              "rel_lt7vmb5tl_mwuwz0dh_nlw": {
+                "id": "rel_lt7vmb5tl_mwuwz0dh_nlw",
+                "name": "video",
+                "type": "ClassComposition",
+                "owner": null,
+                "bounds": {
+                  "x": -307.8666674296061,
+                  "y": 110.83333333333337,
+                  "width": 271.70000076293945,
+                  "height": 640.2666670481364
+                },
+                "path": [
+                  {
+                    "x": 55.70000076293945,
+                    "y": 40
+                  },
+                  {
+                    "x": 55.70000076293945,
+                    "y": 0
+                  },
+                  {
+                    "x": 271.70000076293945,
+                    "y": 0
+                  },
+                  {
+                    "x": 271.70000076293945,
+                    "y": 621.6666666666666
+                  },
+                  {
+                    "x": 121.70000076293945,
+                    "y": 621.6666666666666
+                  },
+                  {
+                    "x": 121.70000076293945,
+                    "y": 581.6666666666666
+                  }
+                ],
+                "source": {
+                  "direction": "Up",
+                  "element": "class_gv6vkoldp_mwuwz0dg_izi",
+                  "multiplicity": "0..*",
+                  "role": "scenes",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Down",
+                  "element": "class_pu96kyhyn_mwuwz0dg_oyl",
+                  "multiplicity": "1",
+                  "role": "video",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_9rkwtfo4i_mwuwz0dh_qyy": {
+                "id": "rel_9rkwtfo4i_mwuwz0dh_qyy",
+                "name": "videos",
+                "type": "ClassAggregation",
+                "owner": null,
+                "bounds": {
+                  "x": -238.21666590372718,
+                  "y": 102.5,
+                  "width": 536.2390613555908,
+                  "height": 648.6000003814697
+                },
+                "path": [
+                  {
+                    "x": 507.0499992370605,
+                    "y": 40
+                  },
+                  {
+                    "x": 507.0499992370605,
+                    "y": 0
+                  },
+                  {
+                    "x": 357.0499992370605,
+                    "y": 0
+                  },
+                  {
+                    "x": 357.0499992370605,
+                    "y": 630
+                  },
+                  {
+                    "x": 52.04999923706055,
+                    "y": 630
+                  },
+                  {
+                    "x": 52.04999923706055,
+                    "y": 590
+                  }
+                ],
+                "source": {
+                  "direction": "Up",
+                  "element": "class_8m1th29v4_mwuwz0dg_o9r",
+                  "multiplicity": "0..*",
+                  "role": "audioTracks",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Down",
+                  "element": "class_pu96kyhyn_mwuwz0dg_oyl",
+                  "multiplicity": "0..*",
+                  "role": "videos",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_zk9dl7pcg_mwuwz0dh_sy3": {
+                "id": "rel_zk9dl7pcg_mwuwz0dh_sy3",
+                "name": "subtitleVideo",
+                "type": "ClassAggregation",
+                "owner": null,
+                "bounds": {
+                  "x": -282.50416819254554,
+                  "y": 127.5,
+                  "width": 300.5265636444091,
+                  "height": 623.6000003814697
+                },
+                "path": [
+                  {
+                    "x": 271.33750152587885,
+                    "y": 40
+                  },
+                  {
+                    "x": 271.33750152587885,
+                    "y": 0
+                  },
+                  {
+                    "x": 121.33750152587885,
+                    "y": 0
+                  },
+                  {
+                    "x": 121.33750152587885,
+                    "y": 252.5
+                  },
+                  {
+                    "x": 246.3375015258789,
+                    "y": 252.5
+                  },
+                  {
+                    "x": 246.3375015258789,
+                    "y": 605
+                  },
+                  {
+                    "x": 96.3375015258789,
+                    "y": 605
+                  },
+                  {
+                    "x": 96.3375015258789,
+                    "y": 565
+                  }
+                ],
+                "source": {
+                  "direction": "Up",
+                  "element": "class_xpmbqcseo_mwuwz0dg_bj4",
+                  "multiplicity": "0..*",
+                  "role": "subtitles",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Down",
+                  "element": "class_pu96kyhyn_mwuwz0dg_oyl",
+                  "multiplicity": "0..*",
+                  "role": "subtitleVideo",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_sp71psf9n_mwuwz0dh_e4t": {
+                "id": "rel_sp71psf9n_mwuwz0dh_e4t",
+                "name": "characters",
+                "type": "ClassBidirectional",
+                "owner": null,
+                "bounds": {
+                  "x": -344.53333409627277,
+                  "y": -312.5,
+                  "width": 242.36666742960614,
+                  "height": 668.3333333333334
+                },
+                "path": [
+                  {
+                    "x": 55.70000076293945,
+                    "y": 40
+                  },
+                  {
+                    "x": 55.70000076293945,
+                    "y": 0
+                  },
+                  {
+                    "x": 242.36666742960614,
+                    "y": 0
+                  },
+                  {
+                    "x": 242.36666742960614,
+                    "y": 668.3333333333334
+                  },
+                  {
+                    "x": 92.36666742960614,
+                    "y": 668.3333333333334
+                  },
+                  {
+                    "x": 92.36666742960614,
+                    "y": 628.3333333333334
+                  }
+                ],
+                "source": {
+                  "direction": "Up",
+                  "element": "class_z40pzxh6i_mwuwz0dg_pbh",
+                  "multiplicity": "0..*",
+                  "role": "scenes",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Down",
+                  "element": "class_gv6vkoldp_mwuwz0dg_izi",
+                  "multiplicity": "0..*",
+                  "role": "characters",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_x41sal6o6_mwuwz0dh_0up": {
+                "id": "rel_x41sal6o6_mwuwz0dh_0up",
+                "name": "scene",
+                "type": "ClassComposition",
+                "owner": null,
+                "bounds": {
+                  "x": -435.8666674296061,
+                  "y": -640,
+                  "width": 379.07500076293945,
+                  "height": 911.9333337148031
+                },
+                "path": [
+                  {
+                    "x": 293.70000076293945,
+                    "y": 10
+                  },
+                  {
+                    "x": 333.70000076293945,
+                    "y": 10
+                  },
+                  {
+                    "x": 333.70000076293945,
+                    "y": 132.5
+                  },
+                  {
+                    "x": 33.70000076293945,
+                    "y": 132.5
+                  },
+                  {
+                    "x": 33.70000076293945,
+                    "y": 873.3333333333334
+                  },
+                  {
+                    "x": 73.70000076293945,
+                    "y": 873.3333333333334
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "class_qdafj90tk_mwuwz0dg_p1z",
+                  "multiplicity": "0..*",
+                  "role": "animations",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "class_gv6vkoldp_mwuwz0dg_izi",
+                  "multiplicity": "1",
+                  "role": "scene",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_1c9m8inzv_mwuwz0dh_xyo": {
+                "id": "rel_1c9m8inzv_mwuwz0dh_xyo",
+                "name": "targetCharacter",
+                "type": "ClassBidirectional",
+                "owner": null,
+                "bounds": {
+                  "x": -519.0692723592122,
+                  "y": -640,
+                  "width": 462.27760569254554,
+                  "height": 476.1000003814697
+                },
+                "path": [
+                  {
+                    "x": 376.90260569254554,
+                    "y": 10
+                  },
+                  {
+                    "x": 416.90260569254554,
+                    "y": 10
+                  },
+                  {
+                    "x": 416.90260569254554,
+                    "y": 132.5
+                  },
+                  {
+                    "x": 80.23593902587885,
+                    "y": 132.5
+                  },
+                  {
+                    "x": 80.23593902587885,
+                    "y": 437.5
+                  },
+                  {
+                    "x": 120.23593902587885,
+                    "y": 437.5
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "class_qdafj90tk_mwuwz0dg_p1z",
+                  "multiplicity": "0..*",
+                  "role": "animations",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "class_z40pzxh6i_mwuwz0dg_pbh",
+                  "multiplicity": "0..1",
+                  "role": "targetCharacter",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_8s0t4oei5_mwuwz0dh_fhp": {
+                "id": "rel_8s0t4oei5_mwuwz0dh_fhp",
+                "name": "currentVideo",
+                "type": "ClassBidirectional",
+                "owner": null,
+                "bounds": {
+                  "x": -281.60416666666663,
+                  "y": -467.5,
+                  "width": 299.6265621185302,
+                  "height": 1200
+                },
+                "path": [
+                  {
+                    "x": 270.43749999999994,
+                    "y": 40
+                  },
+                  {
+                    "x": 270.43749999999994,
+                    "y": 0
+                  },
+                  {
+                    "x": 120.43749999999994,
+                    "y": 0
+                  },
+                  {
+                    "x": 120.43749999999994,
+                    "y": 700
+                  },
+                  {
+                    "x": 245.4375,
+                    "y": 700
+                  },
+                  {
+                    "x": 245.4375,
+                    "y": 1200
+                  },
+                  {
+                    "x": 95.4375,
+                    "y": 1200
+                  },
+                  {
+                    "x": 95.4375,
+                    "y": 1160
+                  }
+                ],
+                "source": {
+                  "direction": "Up",
+                  "element": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                  "multiplicity": "0..*",
+                  "role": "playerSettings",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Down",
+                  "element": "class_pu96kyhyn_mwuwz0dg_oyl",
+                  "multiplicity": "0..1",
+                  "role": "currentVideo",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_8hnkmc1o5_mwuwz0dh_unr": {
+                "id": "rel_8hnkmc1o5_mwuwz0dh_unr",
+                "name": "activeAudioTrack",
+                "type": "ClassBidirectional",
+                "owner": null,
+                "bounds": {
+                  "x": -117.56666819254559,
+                  "y": 12.5,
+                  "width": 418.0875015258789,
+                  "height": 139.60000038146973
+                },
+                "path": [
+                  {
+                    "x": 106.4000015258789,
+                    "y": 0
+                  },
+                  {
+                    "x": 106.4000015258789,
+                    "y": 65
+                  },
+                  {
+                    "x": 386.4000015258789,
+                    "y": 65
+                  },
+                  {
+                    "x": 386.4000015258789,
+                    "y": 130
+                  }
+                ],
+                "source": {
+                  "direction": "Down",
+                  "element": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                  "multiplicity": "0..*",
+                  "role": "playerSettings",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Up",
+                  "element": "class_8m1th29v4_mwuwz0dg_o9r",
+                  "multiplicity": "0..1",
+                  "role": "activeAudioTrack",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "rel_alsx5oqwv_mwuwz0dh_zyb": {
+                "id": "rel_alsx5oqwv_mwuwz0dh_zyb",
+                "name": "activeSubtitle",
+                "type": "ClassBidirectional",
+                "owner": null,
+                "bounds": {
+                  "x": -224.3416697184245,
+                  "y": -217.5,
+                  "width": 432.5750045776367,
+                  "height": 493.6000003814697
+                },
+                "path": [
+                  {
+                    "x": 323.1750030517578,
+                    "y": 10
+                  },
+                  {
+                    "x": 363.1750030517578,
+                    "y": 10
+                  },
+                  {
+                    "x": 363.1750030517578,
+                    "y": 270
+                  },
+                  {
+                    "x": 63.17500305175781,
+                    "y": 270
+                  },
+                  {
+                    "x": 63.17500305175781,
+                    "y": 455
+                  },
+                  {
+                    "x": 103.17500305175781,
+                    "y": 455
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "class_ri5xz9nhm_mwuwz0dg_r2c",
+                  "multiplicity": "0..*",
+                  "role": "playerSettings",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "class_xpmbqcseo_mwuwz0dg_bj4",
+                  "multiplicity": "0..1",
+                  "role": "activeSubtitle",
+                  "navigable": true,
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              }
+            },
+            "assessments": {}
+          },
+          "lastUpdate": "2026-11-24T16:37:49.560Z"
+        }
+      ]
+    },
+    "settings": {
+      "defaultDiagramType": "ClassDiagram",
+      "autoSave": true,
+      "collaborationEnabled": false,
+      "perspectives": {
+        "ClassDiagram": true,
+        "ObjectDiagram": true,
+        "StateMachineDiagram": true,
+        "AgentDiagram": true,
+        "UserDiagram": true,
+        "GUINoCodeDiagram": true,
+        "QuantumCircuitDiagram": true,
+        "NNDiagram": true,
+        "BPMN": true,
+        "ComponentDiagram": true,
+        "DeploymentDiagram": true,
+        "KnowledgeGraphDiagram": true
+      },
+      "preferredInterface": "agent"
+    },
+    "assistantConversation": {
+      "turns": [
+        {
+          "role": "user",
+          "content": "I want to create a cartoonistic video that can teach newtons three laws of motion to secondary school students. Create me a video, an application that can run the video. This application should have volume, full screen, speed control and language changing feature"
+        },
+        {
+          "role": "assistant",
+          "content": "Your **CartoonNewtonPlayer** spec is ready \u2014 it captures **Video**, **Scene**, **Character**, **Animation**, **AudioTrack** and 2 more, with 9 relationship(s) linking them.\n\nYou can now review the model on the canvas or tell me what to refine."
+        },
+        {
+          "role": "user",
+          "content": "generate the application"
+        },
+        {
+          "role": "assistant",
+          "content": "BESSER will generate your application from the designed specs using its built-in generators. If some of your requirements are not supported by these generators, BESSER can use an LLM to handle them.\n\nBESSER includes a free model by default, so you can generate at no cost. For higher-quality results, you can [set up your own API key](wme:add-key) and use a stronger provider or model.\n\nDo you want to continue?"
+        },
+        {
+          "role": "user",
+          "content": "continue with the generation"
+        },
+        {
+          "role": "assistant",
+          "content": "Generating your application from your specs\u2026"
+        }
+      ],
+      "updatedAt": "2026-11-24T16:35:45.459Z"
+    },
+    "attribution": {
+      "attr_1imlbywxu_mwuwz0dg_sfv": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_4wb0ax1os_mwuwz0dg_fa3": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_6w3ofga9r_mwuwz0dg_sjt": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_71yu81xl0_mwuwz0dg_icw": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_75utvlmza_mwuwz0dg_ol0": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_77qvgisfc_mwuwz0dg_xxy": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_9xv33aclo_mwuwz0dg_8i9": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_a0k8vv2sx_mwuwz0dg_dht": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_aj0pvcckk_mwuwz0dg_ewy": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_asx0ahc2t_mwuwz0dg_9sj": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_auuabzglu_mwuwz0dg_n7w": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_cqg84whqx_mwuwz0dg_osz": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_e4fqeus83_mwuwz0dg_eo8": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_ebt846ea7_mwuwz0dg_z3t": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_gfdgfibtl_mwuwz0dg_66x": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_go9t6n2g8_mwuwz0dg_cdu": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_h5l04lcz0_mwuwz0dg_047": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_ha5w2ct36_mwuwz0dg_jya": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_hljo665x4_mwuwz0dg_zed": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_iwdas2e93_mwuwz0dg_9ws": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_jabzu9cy8_mwuwz0dg_5zr": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_ktjm38n3z_mwuwz0dg_26a": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_lk6ldsmex_mwuwz0dg_bhy": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_lmet44rmv_mwuwz0dg_f0l": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_lq3emzg3z_mwuwz0dg_d4f": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_m5rak6zh9_mwuwz0dg_10f": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_mfiopufg3_mwuwz0dg_jhj": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_on1725goo_mwuwz0dg_540": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_p9r7o5jfv_mwuwz0dg_i1r": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_r7qigtpz2_mwuwz0dg_opu": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_sa2czj1uj_mwuwz0dg_rta": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_sdiq741wi_mwuwz0dg_e2g": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_sgdc2hh8x_mwuwz0dg_d1l": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_u9hoko35b_mwuwz0dg_lgc": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_vpv1fn3pg_mwuwz0dg_4iv": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_w6ukvnfw7_mwuwz0dg_eis": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_x1bq31gab_mwuwz0dg_b12": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_yzn7fprzf_mwuwz0dg_rq3": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "attr_z746rj22u_mwuwz0dg_fdx": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "class_8m1th29v4_mwuwz0dg_o9r": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "class_gv6vkoldp_mwuwz0dg_izi": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "class_pu96kyhyn_mwuwz0dg_oyl": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "class_qdafj90tk_mwuwz0dg_p1z": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "class_ri5xz9nhm_mwuwz0dg_r2c": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "class_xpmbqcseo_mwuwz0dg_bj4": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "class_z40pzxh6i_mwuwz0dg_pbh": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_0otveg218_mwuwz0dh_yoi": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_4ehyppxv0_mwuwz0dg_qc6": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_6t39su6ov_mwuwz0dg_x1u": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_8yh4kquuj_mwuwz0dg_n4o": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_98u74pjgz_mwuwz0dg_cuk": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_aorxn1pcf_mwuwz0dg_i7w": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_fi3fd3c9y_mwuwz0dg_ijr": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_hkcm4uvg7_mwuwz0dh_1sg": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "method_i3cxjix7d_mwuwz0dg_3vd": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_1c9m8inzv_mwuwz0dh_xyo": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_8hnkmc1o5_mwuwz0dh_unr": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_8s0t4oei5_mwuwz0dh_fhp": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_9rkwtfo4i_mwuwz0dh_qyy": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_alsx5oqwv_mwuwz0dh_zyb": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_lt7vmb5tl_mwuwz0dh_nlw": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_sp71psf9n_mwuwz0dh_e4t": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_x41sal6o6_mwuwz0dh_0up": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      },
+      "rel_zk9dl7pcg_mwuwz0dh_sy3": {
+        "addedBy": "natarajan-chidambaram",
+        "addedAt": "2026-11-24T16:37:57Z"
+      }
+    }
+  },
+  "exportedAt": "2026-11-24T16:37:49.564Z",
+  "version": "2.0.0",
+  "editorVersion": "8.9.4"
+}
