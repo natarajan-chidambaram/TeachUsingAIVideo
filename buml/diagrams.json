@@ -1944,9 +1944,17 @@
         {
           "role": "assistant",
           "content": "Generating your application from your specs\u2026"
+        },
+        {
+          "role": "assistant",
+          "content": "\u2705 Generated **54** files with BESSER's `generate_fastapi_backend` generator. 6 checks could not be verified. **20%** of files were unchanged from the scaffold in this run. This measures file provenance, not correctness or requirements coverage. Top level: `README.md`, `backend`, `docker-compose.yml`, `frontend`. Use the **Download** button on the run card to save it."
+        },
+        {
+          "role": "assistant",
+          "content": "The Spec-Driven Agent finished with 6 unresolved blockers; the application is incomplete. You can run the generation again to finish the remaining changes."
         }
       ],
-      "updatedAt": "2026-11-24T16:35:45.459Z"
+      "updatedAt": "2026-11-24T16:46:32.856Z"
     },
     "attribution": {
       "attr_1imlbywxu_mwuwz0dg_sfv": {
@@ -2207,7 +2215,7 @@
       }
     }
   },
-  "exportedAt": "2026-11-24T16:37:49.564Z",
+  "exportedAt": "2026-11-24T16:52:04.357Z",
   "version": "2.0.0",
   "editorVersion": "8.9.4"
 }
